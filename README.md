@@ -1,4 +1,5 @@
 # PayPro Client
+This module provides an easy to use interface for PayPro.
 
 ## Environment:
 PAYPRO_KEY   = <Your API key>
