@@ -2,12 +2,21 @@
 This module provides an easy to use interface for PayPro.
 
 ## Environment:
-PAYPRO_KEY   = <Your API key>
+PAYPRO_KEY   = ***Your API key***
 
 ## Usage
 ```
 const Client = require('../lib/client');
 const client = new Client();
+```
+
+or
+
+```
+const Client = require('../lib/client');
+const client = new Client({
+  apiKey: '***Your API key***',
+});
 ```
 
 ## CreatePayment
