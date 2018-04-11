@@ -5,14 +5,14 @@ This module provides an easy to use interface for PayPro.
 PAYPRO_KEY   = ***Your API key***
 
 ## Usage
-```
+```javascript
 const Client = require('../lib/client');
 const client = new Client();
 ```
 
 or
 
-```
+```javascript
 const Client = require('../lib/client');
 const client = new Client({
   apiKey: '***Your API key***',
@@ -23,7 +23,7 @@ const client = new Client({
 Creates a payment intended for a consumer
 
 ### Example
-```
+```javascript
 const Client = require('../lib/client');
 
 const client = new Client();
