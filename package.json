@@ -4,7 +4,7 @@
   "description": "PayPro Client",
   "main": "index.js",
   "scripts": {
-    "test": "node example/index.js"
+    "test": "node tests/index.js"
   },
   "repository": {
     "type": "git",
