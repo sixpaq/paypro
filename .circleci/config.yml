@@ -1,0 +1,43 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8
+        environment:
+          # lang settings required for Meteor's Mongo
+          LANG: C.UTF-8
+          LANGUAGE: C.UTF-8
+          LC_ALL: C.UTF-8
+          LC_NUMERIC: en_US.UTF-8
+
+    working_directory: ~/paypro
+
+    dependencies:
+      pre:
+        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+    steps:
+      - add_ssh_keys
+
+      - checkout
+
+      - run:
+          name: Install build essentials
+          command: sudo apt-get install -y build-essential
+
+      - run:
+          name: Install npm packages
+          command: meteor npm install
+          
+      - run:
+          name: Build image if branch is "develop"
+          command: |
+            if [ $CIRCLE_BRANCH == "master" ]
+            then
+                npm publish
+            fi
