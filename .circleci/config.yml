@@ -32,10 +32,10 @@ jobs:
 
       - run:
           name: Install npm packages
-          command: meteor npm install
+          command: npm install
           
       - run:
-          name: Build image if branch is "develop"
+          name: Publish package to npm
           command: |
             if [ $CIRCLE_BRANCH == "master" ]
             then
