@@ -17,14 +17,14 @@ jobs:
 
     working_directory: ~/paypro
 
-    dependencies:
-      pre:
-        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-
     steps:
       - add_ssh_keys
 
       - checkout
+
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
       - run:
           name: Install build essentials
